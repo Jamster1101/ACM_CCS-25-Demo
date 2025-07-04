@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Password Manager Controller</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      width: 320px;
+    }
+
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .button {
+      flex: 1;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 6px;
+      background-color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, select {
+      padding: 10px;
+      font-size: 14px;
+      border: 2px solid black;
+      border-radius: 6px;
+    }
+
+    #AddRemovePopup .buttons {
+      margin-top: 20px;
+    }
+
+    #AddRemovePopup .dropdown-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    #SafePopup, #UnsafePopup, #AddRemovePopup {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Password Manager Controller</h1>
+
+  <div>
+    <p>Current Network: <span id="current-network">Loading...</span></p>
+    <p>Current Status: <span id="current-status">Loading...</span></p>
+  </div>
+  
+
+  <!-- Popup A -->
+  <div class="buttons" id="SafePopup">
+    <button class="button" id="openAddRemove">Add/Remove Network</button>
+    <button class="button" id="renameButton">Rename Network</button>
+  </div>
+
+  <!-- Popup B -->
+  <div class="buttons" id="UnsafePopup">
+    <button class="button" id="copyNetwork">Copy Current Network</button>
+  </div>
+
+  <!-- Popup C (Add/Remove UI) -->
+  <div id="AddRemovePopup">
+    <div class="input-group">
+      <input type="text" placeholder="Network Hash..." id="networkHash" />
+      <input type="text" placeholder="Network Name..." id="networkName" />
+      <button class="button" id="addNetworkBtn">Add Network</button>
+    </div>
+
+    <div class="dropdown-row">
+      <select id="networkSelect">
+        <option value="">Choose Network</option>
+        <!-- Dynamically filled -->
+      </select>
+      <button class="button" id="removeNetworkBtn">Remove Network</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "name": "com.nbac.password.manager",
+    "description": "Executes batch file to find router MAC address",
+    "path": "MAC.bat",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://ooldjklhjeackdokcmechempklmjcamm/"
+    ]
+}

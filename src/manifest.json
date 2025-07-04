@@ -1,0 +1,32 @@
+{
+    "name": "NBAC PMC",
+    "version": "1.0",
+    "description": "Using Network Based Access Control to control password managers",
+    "manifest_version": 3,
+    "permissions": [
+        "storage",
+        "nativeMessaging",
+        "activeTab",
+        "scripting",
+        "tabs",
+        "notifications"
+    ],
+    "action": {
+        "default_icon": "images/NBAC_PMM.png",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*/*", "http://*/*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ]
+}
